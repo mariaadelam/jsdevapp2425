@@ -1,0 +1,17 @@
+<h1>Acasa</h1>
+<h2>{{ descriere }}</h2>
+<!-- interpolare - {{descriere}} -->
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eligendi ipsum expedita quos accusantium ea,
+  consequuntur, maxime, illum sit error molestiae optio adipisci sint doloremque! Sapiente, quisquam? Quas, hic nihil.
+</p>
+<h3>Formular schimba descriere</h3>
+
+<input type="text" [(ngModel)]="descriere">
+
+<p>{{ showImage }}</p>
+<img *ngIf="showImage" [src]="myimg" alt="" style="max-width: 250px;">
+<p>Urmeaza buton</p>
+<!-- [src] e o variabila care contine linkul catre imagine -->
+ <button (click)="salut()">Start</button>
+
+ <button (click)="showImg()">Afiseaza imagine</button>
