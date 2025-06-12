@@ -93,13 +93,17 @@ userRouter.delete("/:id", jsonParser, async (req: Request, res: Response) => {
   });
 });
 
-//Status user
+
 userRouter.put("/status/:id/:status", jsonParser, async (req: Request, res: Response) => {
   const userId: number = Number(req.params.id);
   const userstatus: number = Number(req.params.status);
+  const userInfo ={
+    userId,
+    userstatus
+  }
   //const user: User = req.body;
   //console.log(req.body);
-  userModel.statusUser([userId, userstatus], (err: Error) => {
+  userModel.statusUser(userInfo, (err: Error) => {
     if (err) {
       return res.status(500).json({ message: err.message });
     }
@@ -110,7 +114,4 @@ userRouter.put("/status/:id/:status", jsonParser, async (req: Request, res: Resp
     });
   });
 });
-
 export { userRouter };
-
-

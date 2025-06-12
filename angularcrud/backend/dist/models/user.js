@@ -126,10 +126,18 @@ const deleteUser = (id, callback) => {
     });
 };
 exports.deleteUser = deleteUser;
-const statusUser = (id, callback) => {
-    const queryString = `UPDATE jsusers SET status = 0  WHERE id=?`;
-    db_1.db.query(queryString, [id], (err, result) => {
+const statusUser = (userInfo, callback) => {
+    let status = 1;
+    if (userInfo.userstatus == 0) {
+        status = 1;
+    }
+    else {
+        status = 0;
+    }
+    const queryString = `UPDATE jsusers SET status =?  WHERE id=?`;
+    db_1.db.query(queryString, [status, userInfo.userId], (err, result) => {
         if (err) {
+            console.error("MySQL error:", err);
             callback(err);
         }
         callback(null);

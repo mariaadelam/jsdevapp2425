@@ -125,12 +125,16 @@ userRouter.delete("/:id", jsonParser, (req, res) => __awaiter(void 0, void 0, vo
         });
     });
 }));
-//Status user
-userRouter.put("/:id", jsonParser, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+userRouter.put("/status/:id/:status", jsonParser, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = Number(req.params.id);
+    const userstatus = Number(req.params.status);
+    const userInfo = {
+        userId,
+        userstatus
+    };
     //const user: User = req.body;
     //console.log(req.body);
-    userModel.statusUser(userId, (err) => {
+    userModel.statusUser(userInfo, (err) => {
         if (err) {
             return res.status(500).json({ message: err.message });
         }
