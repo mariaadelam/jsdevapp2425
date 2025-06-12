@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
-import { User } from './../models/user';
+import { User } from '../models/user';
 import { ApiService } from '../api.service';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
