@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Salut nume='Ion' curs ='React' />
+      {/* <Salut nume='Ion' curs='React' /> */}
       <Salut nume='Dan' />
       <Salut nume='Ana' />
       <Masina car={carInfo} />
